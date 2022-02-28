@@ -1,0 +1,23 @@
+{
+  "name": "DataTables Starter",
+  "version": "2.0.0",
+  "description": "Get Started with DataTables for Your App",
+  "scripts": {
+    "start": "parcel index.html  --no-source-maps",
+    "browserslist": "> 0.5%, last 2 versions, not dead",
+    "build": "parcel build index.html",
+    "upload": "node ./scripts/upload",
+    "build:upload": "npm run build && npm run upload",
+    "openfile": "node ./scripts/openFileOnServer",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jeremy@integratingmagic.io",
+  "license": "ISC",
+  "dependencies": {
+    "fm-webviewer-fetch": "^1.1.0",
+    "parcel": "^2.0.1"
+  },
+  "devDependencies": {
+    "open": "^8.2.1"
+  }
+}
