@@ -4,37 +4,24 @@ var table;
 
 // exposing loadData to FileMaker Script
 window.loadData = function (json) {
-  var obj = JSON.parse(json); // data from FM is a string
-  var data = obj.data;
-  // return;
-  // create column headers from data
-  var firstRecord = data[0];
-  var columns = [
-    { data: "fieldData.Id", title: "ID", visible: false },
-    { data: "fieldData.City", title: "City" },
-    { data: "fieldData.CompanyName", title: "Company" },
-    { data: "fieldData.State", title: "State" },
-    { data: "fieldData.StreetAddress", title: "Address" },
-  ];
+  // TODO: 1. get found set of data from FileMaker.
 
-  console.log(columns);
-  // Create the DataTable, after destroying it if already exists
-  if (table) table.destroy();
-  table = $("#dtable").DataTable({
+  // TODO: 2. get the columns from the first row of the data.
+
+  // TODO: 5. OPTIONAL: Create a new table with some of the columns
+
+  // Options here
+  const options = {
     paging: true,
     pageLength: 20,
     searching: true,
     colReorder: true,
     columns: columns,
     data: data,
-  });
+  };
 
-  // Add the click handler to the row, after removing it if already exists
-  $("#dtable tbody").off("dblclick");
-  $("#dtable tbody").on("dblclick", "tr", function () {
-    var record = table.row(this).data();
-    var json = JSON.stringify(record);
-
-    FileMaker.PerformScript("On Double Click Row", json);
-  });
+  // Create the DataTable, after destroying it if already exists
+  if (table) table.destroy();
+  // TODO: 3. create the DataTable with the options
+  // TODO: 4. add row click event listener
 };
